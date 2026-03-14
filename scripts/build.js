@@ -44,4 +44,27 @@ fs.writeFileSync(
   JSON.stringify(registry, null, 2)
 );
 
+// 写入一个简单的 index.html 防止 404
+const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Link Plugin Registry</title>
+    <style>
+        body { font-family: system-ui, sans-serif; text-align: center; padding: 50px; background: #1e1e1e; color: #ccc; }
+        a { color: #007fd4; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Aurora Link Plugin Registry</h1>
+    <p>This is the plugin registry for Aurora Link.</p>
+    <p>View the registry JSON here: <a href="registry.json">registry.json</a></p>
+</body>
+</html>
+`;
+fs.writeFileSync(path.join(outputDir, 'index.html'), htmlContent);
+
 console.log(`\n🎉 构建完成！共收录 ${registry.plugins.length} 个插件。`);
