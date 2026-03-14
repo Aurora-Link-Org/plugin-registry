@@ -1,0 +1,32 @@
+# 1. 编译输出的中间文件夹 (核心：每次 Actions 自动生成的目录，不需要提交到源码中)
+dist/
+
+# 2. Node.js 依赖
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 3. 环境变量 (如果有的话)
+.env
+.env.local
+
+# 4. 意外遗留的压缩包 (防止开发者不小心把插件压缩包传上来)
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# 5. 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 6. 编辑器配置
+.vscode/
+.idea/
+*.suo
+*.sw?
