@@ -1,0 +1,10 @@
+{
+  "id": "ssh-manager",
+  "name": "SSH Manager",
+  "version": "1.2.5",
+  "description": "便捷的 SSH 连接管理器，支持密码管理和多会话。",
+  "author": "NetTools",
+  "icon": "icon.svg",
+  "type": "tool",
+  "downloadUrl": "https://github.com/Aurora-Link-Org/plugin-registry/raw/main/plugins/ssh-manager/index.js"
+}
