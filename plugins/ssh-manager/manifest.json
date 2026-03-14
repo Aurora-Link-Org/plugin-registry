@@ -5,6 +5,44 @@
   "description": "便捷的 SSH 连接管理器，支持密码管理和多会话。",
   "author": "NetTools",
   "icon": "icon.svg",
-  "type": "tool",
-  "downloadUrl": "https://github.com/Aurora-Link-Org/plugin-registry/raw/main/plugins/ssh-manager/index.js"
+  "type": "protocol",
+  "downloadUrl": "https://github.com/Aurora-Link-Org/plugin-registry/raw/main/plugins/ssh-manager/plugin.wasm",
+  "activation": {
+    "engine": "wasm",
+    "entry": "plugin.wasm"
+  },
+  "contributes": {
+    "protocols": [
+      {
+        "id": "ssh",
+        "label": "SSH Connection",
+        "settings": [
+          {
+            "id": "host",
+            "label": "Host",
+            "type": "string",
+            "default": "127.0.0.1"
+          },
+          {
+            "id": "port",
+            "label": "Port",
+            "type": "number",
+            "default": 22
+          },
+          {
+            "id": "username",
+            "label": "Username",
+            "type": "string",
+            "default": "root"
+          },
+          {
+            "id": "password",
+            "label": "Password",
+            "type": "password",
+            "default": ""
+          }
+        ]
+      }
+    ]
+  }
 }

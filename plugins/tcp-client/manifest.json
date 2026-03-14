@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "author": "Aurora Link",
   "description": "High-performance TCP Client",
+  "icon": "icon.svg",
   "type": "protocol",
+  "downloadUrl": "https://github.com/Aurora-Link-Org/plugin-registry/raw/main/plugins/tcp-client/plugin.wasm",
   "activation": {
     "engine": "wasm",
     "entry": "plugin.wasm"
