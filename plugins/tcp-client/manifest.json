@@ -1,0 +1,10 @@
+{
+  "id": "tcp-client",
+  "name": "TCP Client",
+  "version": "1.0.0",
+  "description": "基础的 TCP 客户端连接支持。",
+  "author": "NetTools",
+  "icon": "icon.svg",
+  "type": "tool",
+  "downloadUrl": "https://github.com/Aurora-Link-Org/plugin-registry/raw/main/plugins/tcp-client/index.js"
+}
