@@ -1,10 +1,34 @@
 {
   "id": "tcp-client",
-  "name": "TCP Client",
+  "name": "TCP Client Protocol",
   "version": "1.0.0",
-  "description": "基础的 TCP 客户端连接支持。",
-  "author": "NetTools",
-  "icon": "icon.svg",
-  "type": "tool",
-  "downloadUrl": "https://github.com/Aurora-Link-Org/plugin-registry/raw/main/plugins/tcp-client/index.js"
+  "author": "Aurora Link",
+  "description": "High-performance TCP Client",
+  "type": "protocol",
+  "activation": {
+    "engine": "wasm",
+    "entry": "plugin.wasm"
+  },
+  "contributes": {
+    "protocols": [
+      {
+        "id": "tcp",
+        "label": "TCP Client",
+        "settings": [
+          {
+            "id": "host",
+            "label": "Host IP",
+            "type": "string",
+            "default": "127.0.0.1"
+          },
+          {
+            "id": "port",
+            "label": "Port",
+            "type": "number",
+            "default": 8080
+          }
+        ]
+      }
+    ]
+  }
 }
