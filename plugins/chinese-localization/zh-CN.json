@@ -1,0 +1,11 @@
+{
+  "locale": "zh-CN",
+  "translations": {
+    "menu.file": "文件",
+    "menu.edit": "编辑",
+    "menu.view": "查看",
+    "menu.help": "帮助",
+    "action.connect": "连接",
+    "action.disconnect": "断开连接"
+  }
+}
