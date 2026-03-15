@@ -6,19 +6,23 @@ const outputDir = path.join(__dirname, '../dist');
 
 const registry = { plugins: [] };
 
-// 确保输出目录存在
+// 1. 确保输出目录存在
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// 复制整个 plugins 目录到 dist/plugins
+// 2. 复制整个 plugins 目录到 dist/plugins (解决下载 404 问题)
 const distPluginsDir = path.join(outputDir, 'plugins');
 if (fs.existsSync(pluginsDir)) {
+  // 如果 dist/plugins 已存在，先删除，确保是最新的
+  if (fs.existsSync(distPluginsDir)) {
+    fs.rmSync(distPluginsDir, { recursive: true });
+  }
   fs.cpSync(pluginsDir, distPluginsDir, { recursive: true });
   console.log(`✅ 成功将 plugins 目录复制到 dist/plugins`);
 }
 
-// 遍历 plugins 目录下的所有插件文件夹
+// 3. 遍历 plugins 目录下的所有插件文件夹
 if (fs.existsSync(pluginsDir)) {
   const items = fs.readdirSync(pluginsDir);
 
@@ -30,6 +34,13 @@ if (fs.existsSync(pluginsDir)) {
       if (fs.existsSync(manifestPath)) {
         try {
           const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+
+          // 4. 修正图标路径 (解决图标不显示问题)
+          // 将 "icon.svg" 转换为 "plugins/ssh-manager/icon.svg"
+          // 这是相对于 registry.json 的正确相对路径
+          if (manifest.icon && !manifest.icon.startsWith('http')) {
+            manifest.icon = `plugins/${item}/${manifest.icon}`;
+          }
 
           // 基础校验：必须包含 id, version 和 downloadUrl
           if (manifest.id && manifest.version && manifest.downloadUrl) {
@@ -46,13 +57,13 @@ if (fs.existsSync(pluginsDir)) {
   });
 }
 
-// 写入最终的 registry.json
+// 5. 写入最终的 registry.json
 fs.writeFileSync(
   path.join(outputDir, 'registry.json'), 
   JSON.stringify(registry, null, 2)
 );
 
-// 写入一个简单的 index.html 防止 404
+// 6. 写入一个简单的 index.html 防止 404
 const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
