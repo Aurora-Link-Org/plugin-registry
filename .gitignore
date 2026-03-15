@@ -4,6 +4,7 @@
 
 # 忽略 Rust 编译产物
 **/target/
+Cargo.lock
 
 # 2. Node.js 依赖
 node_modules/
