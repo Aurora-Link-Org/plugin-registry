@@ -7,7 +7,6 @@
     "menu.help": "帮助",
     "action.connect": "连接",
     "action.disconnect": "断开连接",
-    
     "startup": "启动",
     "interaction": "交互",
     "appearance": "外观",
@@ -86,6 +85,24 @@
     "rx": "接收",
     "tx": "发送",
     "connect": "连接",
-    "disconnect": "断开连接"
+    "disconnect": "断开连接",
+    "reloadPlugins": "重新加载插件",
+    "explore": "探索",
+    "installed": "已安装",
+    "settingsTab": "设置",
+    "marketplace": "市场",
+    "openDirectory": "打开目录",
+    "languageLabel": "语言",
+    "themeLabel": "主题",
+    "searchPlugins": "搜索插件",
+    "installing": "正在安装",
+    "update": "更新",
+    "registryError": "无法加载插件注册表。请检查您的网络连接或注册表 URL。",
+    "deleteConfirm": "确定删除？",
+    "installSuccess": "插件安装成功！请重启应用或重新加载插件。",
+    "invalidUrl": "请输入有效的 URL",
+    "addWidget": "添加",
+    "noWidgets": "尚未添加小组件。在此处添加图表、滑块或按钮。",
+    "typeLabel": "类型"
   }
 }
