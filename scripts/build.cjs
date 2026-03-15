@@ -11,6 +11,13 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
+// 复制整个 plugins 目录到 dist/plugins
+const distPluginsDir = path.join(outputDir, 'plugins');
+if (fs.existsSync(pluginsDir)) {
+  fs.cpSync(pluginsDir, distPluginsDir, { recursive: true });
+  console.log(`✅ 成功将 plugins 目录复制到 dist/plugins`);
+}
+
 // 遍历 plugins 目录下的所有插件文件夹
 if (fs.existsSync(pluginsDir)) {
   const items = fs.readdirSync(pluginsDir);
