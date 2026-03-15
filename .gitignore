@@ -1,5 +1,9 @@
 # 1. 编译输出的中间文件夹 (核心：每次 Actions 自动生成的目录，不需要提交到源码中)
-dist/
+# 注意：使用 /dist/ 仅忽略根目录构建产物，确保 plugins/*/dist/ 下的 WASM 能被提交
+/dist/
+
+# 忽略 Rust 编译产物
+**/target/
 
 # 2. Node.js 依赖
 node_modules/

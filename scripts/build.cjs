@@ -23,6 +23,7 @@ if (fs.existsSync(pluginsDir)) {
       if (fs.existsSync(manifestPath)) {
         try {
           const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+
           // 基础校验：必须包含 id, version 和 downloadUrl
           if (manifest.id && manifest.version && manifest.downloadUrl) {
             registry.plugins.push(manifest);
