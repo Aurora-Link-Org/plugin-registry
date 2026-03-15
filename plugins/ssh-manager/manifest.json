@@ -6,7 +6,7 @@
   "author": "NetTools",
   "icon": "icon.svg",
   "type": "protocol",
-  "downloadUrl": "https://github.com/Aurora-Link-Org/plugin-registry/raw/main/plugins/ssh-manager/dist/plugin.wasm",
+  "downloadUrl": "https://aurora-link-org.github.io/plugin-registry/plugins/ssh-manager/dist/plugin.wasm",
   "activation": {
     "engine": "wasm",
     "entry": "dist/plugin.wasm"
