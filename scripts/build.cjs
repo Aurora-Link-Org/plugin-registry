@@ -6,23 +6,19 @@ const outputDir = path.join(__dirname, '../dist');
 
 const registry = { plugins: [] };
 
-// 1. 确保输出目录存在
+// 确保输出目录存在
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// 2. 复制整个 plugins 目录到 dist/plugins (解决下载 404 问题)
+// 复制整个 plugins 目录到 dist/plugins
 const distPluginsDir = path.join(outputDir, 'plugins');
 if (fs.existsSync(pluginsDir)) {
-  // 如果 dist/plugins 已存在，先删除，确保是最新的
-  if (fs.existsSync(distPluginsDir)) {
-    fs.rmSync(distPluginsDir, { recursive: true });
-  }
   fs.cpSync(pluginsDir, distPluginsDir, { recursive: true });
   console.log(`✅ 成功将 plugins 目录复制到 dist/plugins`);
 }
 
-// 3. 遍历 plugins 目录下的所有插件文件夹
+// 遍历 plugins 目录下的所有插件文件夹
 if (fs.existsSync(pluginsDir)) {
   const items = fs.readdirSync(pluginsDir);
 
@@ -35,11 +31,9 @@ if (fs.existsSync(pluginsDir)) {
         try {
           const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
 
-          // 4. 修正图标路径 (解决图标不显示问题)
-          // 将 "icon.svg" 转换为 "plugins/ssh-manager/icon.svg"
-          // 这是相对于 registry.json 的正确相对路径
+          // 修正图标路径：如果图标是相对路径，转换为绝对 URL
           if (manifest.icon && !manifest.icon.startsWith('http')) {
-            manifest.icon = `plugins/${item}/${manifest.icon}`;
+            manifest.icon = `https://aurora-link-org.github.io/plugin-registry/plugins/${item}/${manifest.icon}`;
           }
 
           // 基础校验：必须包含 id, version 和 downloadUrl
@@ -57,13 +51,13 @@ if (fs.existsSync(pluginsDir)) {
   });
 }
 
-// 5. 写入最终的 registry.json
+// 写入最终的 registry.json
 fs.writeFileSync(
   path.join(outputDir, 'registry.json'), 
   JSON.stringify(registry, null, 2)
 );
 
-// 6. 写入一个简单的 index.html 防止 404
+// 写入一个简单的 index.html 防止 404
 const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
