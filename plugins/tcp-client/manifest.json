@@ -3,7 +3,7 @@
   "name": "TCP Client Protocol",
   "version": "1.0.0",
   "author": "Aurora Link",
-  "description": "High-performance TCP Client",
+  "description": "High-performance TCP Client protocol support.",
   "icon": "icon.svg",
   "type": "protocol",
   "downloadUrl": "https://aurora-link-org.github.io/plugin-registry/plugins/tcp-client/dist/plugin.wasm",

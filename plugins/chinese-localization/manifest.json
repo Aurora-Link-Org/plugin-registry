@@ -1,7 +1,7 @@
 {
   "id": "chinese-localization",
   "name": "简体中文语言包",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "为 Aurora Terminal 提供完整的界面汉化支持。",
   "author": "Aurora Team",
   "icon": "icon.svg",

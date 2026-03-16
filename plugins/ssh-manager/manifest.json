@@ -1,8 +1,8 @@
 {
   "id": "ssh-manager",
   "name": "SSH Manager",
-  "version": "1.2.5",
-  "description": "便捷的 SSH 连接管理器，支持密码管理和多会话。",
+  "version": "1.0.0",
+  "description": "Convenient SSH connection manager with password and session management.",
   "author": "NetTools",
   "icon": "icon.svg",
   "type": "protocol",
